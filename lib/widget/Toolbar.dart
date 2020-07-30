@@ -17,8 +17,11 @@ class Toolbar extends StatelessWidget implements PreferredSizeWidget {
   }
 
 //
-  Toolbar({double tbHeight, Widget child, BuildContext ctx})
-      : toolbarHeight = tbHeight,
+  Toolbar({
+    @required double tbHeight,
+    @required Widget child,
+    @required BuildContext ctx,
+  })  : toolbarHeight = tbHeight,
         child = child,
         preferredSize = Size(double.infinity, tbHeight),
         super();

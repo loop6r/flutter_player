@@ -11,6 +11,5 @@ class RouterTable {
 
   static String RegisterPage = "/register";
 
-
   static String Launcher = RegisterPage;
 }

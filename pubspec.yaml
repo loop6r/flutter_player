@@ -19,11 +19,21 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  fluttertoast: ^7.0.1
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  #状态管理插件
+  provider: ^4.3.1
+  # toast 插件
+  fluttertoast: ^7.0.1
+  # 网络请求
+  dio: 3.0.9
+  # 事件总线
+
+  #瀑布流
+  flutter_staggered_grid_view: ^0.3.1
 
 dev_dependencies:
   flutter_test:

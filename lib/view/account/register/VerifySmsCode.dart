@@ -12,8 +12,11 @@ class _SmsCodeVerifyState extends State {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Text("this is sms code verify"),
+      body: GestureDetector(
+        onTap: () {},
+        child: Container(
+          child: Text("this is sms code verify"),
+        ),
       ),
     );
   }

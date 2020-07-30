@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bridge/res.dart';
+import 'package:flutter_bridge/view/account/register/state/state.dart';
 import 'package:flutter_bridge/widget/CommonButton.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:provider/provider.dart';
 
 /**
  * 注册界面
@@ -16,7 +18,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterState extends State {
-  var isAgree = false;
+  var isAgree = true;
   var isValidPhone = false;
 
   bool canSubmit() {
@@ -44,7 +46,7 @@ class _RegisterState extends State {
             _input(),
             _license(),
             _space(26),
-            _submitBtn(canSubmit()),
+            _submitBtn(context, canSubmit()),
           ],
         ),
       ),
@@ -155,7 +157,7 @@ class _RegisterState extends State {
     );
   }
 
-  Widget _submitBtn(bool isEnable) {
+  Widget _submitBtn(BuildContext ctx, bool isEnable) {
     return Container(
       width: double.infinity,
       height: 40,
@@ -163,7 +165,7 @@ class _RegisterState extends State {
           btnTxt: "获取验证码",
           isEnable: canSubmit(),
           clickLi: () {
-            _submit();
+            _submit(ctx);
             Fluttertoast.showToast(
                 msg: "你点你🐎呢 ，栽种",
                 toastLength: Toast.LENGTH_SHORT,
@@ -178,8 +180,11 @@ class _RegisterState extends State {
     });
   }
 
-  _submit() {
+  _submit(BuildContext ctx) {
     var inputStr = inputCtrl.text;
     debugPrint("让👴康康 你这个憨批输入了啥 $inputStr");
+//    Provider.of<RegisterPageModel>(ctx).setCurrent(1);
+    ctx.read<RegisterPageModel>().setCurrent(1);
+//    Provider.of<RegisterPageModel>(ctx).notifyListeners();
   }
 }
